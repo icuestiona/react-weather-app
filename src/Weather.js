@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import "./App";
+import "./WeatherTemp";
+import FormatDate from "./FormatDate";
+import WeatherTemp from "./WeatherTemp";
 
 export default function Weather(props) {
   const [weather, setWeather] = useState({ ready: false });
@@ -17,7 +21,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       iconUrl: `https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg`,
-      date: "Thursday 11:00h",
+      date: new Date(response.data.dt * 1000),
       feelsLike: Math.round(response.data.main.feels_like),
     });
   }
@@ -42,32 +46,38 @@ export default function Weather(props) {
         </form>
         <h1 id="city">{weather.city}</h1>
         <ul>
-          <li>{weather.date}</li>
+          <li>
+            <FormatDate date={weather.date} />
+          </li>
           <li className="text-capitalize">{weather.description}</li>
         </ul>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-6">
             <div className="clearfix">
-              <img src={weather.iconUrl} alt={weather.description} />
-            </div>
-            <div className="float-left">
-              <span className="temperature">
-                <Weather celsius={weather.temperature} />
-              </span>
-              <span className="unit">ºC</span>
-            </div>
-            <div className="col-6">
-              <ul>
-                <li>Precipitation: 24%</li>
-                <li>
-                  Humidity:{""}
-                  {weather.humidity}
-                </li>
-                <li>
-                  Wind:{""}
-                  {Math.round(weather.wind)}
-                </li>
-              </ul>
+              <img
+                src={weather.iconUrl}
+                alt={weather.description}
+                className="float-left"
+              />
+              <div className="float-left">
+                <span className="temperature">
+                  <WeatherTemp celsius={weather.temperature} />
+                </span>
+                <span className="unit">ºC</span>
+              </div>
+              <div className="col-6">
+                <ul>
+                  <li>Precipitation: 24%</li>
+                  <li>
+                    Humidity:{""}
+                    {weather.humidity}%
+                  </li>
+                  <li>
+                    Wind:{""}
+                    {Math.round(weather.wind)}Km/h
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -75,7 +85,7 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = `ec906dafd44a254d26b9dd410c431070`;
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
 
     return "Loading...";
