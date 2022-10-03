@@ -1,14 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import "./index.css";
+import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <section className="container" alt="pink and blue clouds">
+      <App />
+    </section>
   </React.StrictMode>
 );
 

@@ -3,7 +3,7 @@ import "./Weather.css";
 
 export default function weather() {
   return (
-    <div className="weather">
+    <div className="Weather">
       <form>
         <div className="row">
           <div className="col-9">
@@ -11,6 +11,7 @@ export default function weather() {
               type="search"
               placeholder="Enter a city..."
               className="form-control"
+              autoFocus="on"
             />
           </div>
           <div className="col-3">
@@ -28,9 +29,9 @@ export default function weather() {
           <img
             src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg"
             alt="Mostly Cloudy"
-            width="128px"
           />
-          12ºC
+          <span className="temperature">24</span>
+          <span className="unit">ºC</span>
         </div>
         <div className="col-6">
           <ul>
