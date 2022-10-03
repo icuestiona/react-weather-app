@@ -59,7 +59,7 @@ export default function Weather(props) {
                 alt={weather.description}
                 className="float-left"
               />
-              <div className="float-left">
+              <div className="float-right">
                 <span className="temperature">
                   <WeatherTemp celsius={weather.temperature} />
                 </span>
