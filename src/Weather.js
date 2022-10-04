@@ -6,11 +6,8 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weather, setWeather] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [loading, setLoading] = useState(false);
 
   function handleResponse(response) {
-    setCity();
-    setLoading(true);
     setWeather({
       ready: true,
       city: response.data.name,
@@ -20,13 +17,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       iconUrl: `https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg`,
       date: new Date(response.data.dt * 1000),
-      feelsLike: Math.round(response.data.main.feels_like),
     });
-  }
-
-  function alertNotFound() {
-    setLoading(false);
-    setWeather({});
   }
 
   function handleSubmit(event) {
@@ -42,10 +33,10 @@ export default function Weather(props) {
   function search() {
     let apiKey = `ec906dafd44a254d26b9dd410c431070`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse).catch(alertNotFound);
+    axios.get(apiUrl).then(handleResponse);
   }
 
-  if (loading) {
+  if (weather.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -54,13 +45,13 @@ export default function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city..."
-                className="form-control"
+                className="form-control form-search-input"
                 autoFocus="on"
                 onChange={handleCityChange}
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="search" className="btn btn-primary" />
+              <input type="submit" value="Search" className="btn btn-primary" />
             </div>
           </div>
         </form>
