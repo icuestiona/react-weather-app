@@ -18,7 +18,7 @@ export default function WeatherInfo(props) {
             <img
               src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/clear-day.svg"
               width="128"
-              alt={props.data.weather[0].description}
+              alt={props.data.description}
               className="float-left"
             />
           </div>
