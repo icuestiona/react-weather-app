@@ -5,7 +5,7 @@
   max-width: 700px;
   height: 450px;
   border-radius: 4px;
-  color: rgb(135, 135, 135);
+  color: #e7d7be;
 }
 
 .Weather h1 {
@@ -25,9 +25,9 @@
   line-height: 19px;
   list-style: none;
 }
-.Weather img {
-  height: 128px;
-  width: 128px;
+.Weather canvas {
+  height: 80px;
+  width: 80px;
   margin-right: 10px;
   display: block;
 }
@@ -51,6 +51,12 @@
 
 .degreeClickers {
   font-size: 20px;
+  top: -30px;
+}
+
+.WeatherTemp {
+  margin-left: 90px;
+  margin-top: -130px;
 }
 
 button {
@@ -73,4 +79,8 @@ input[type="text"] {
   border-radius: 2px;
   color: #fff;
   height: 44px;
+}
+.details {
+  margin-left: 350px;
+  margin-top: -60px;
 }
