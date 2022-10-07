@@ -8,7 +8,15 @@ export default function App() {
       <div className="container">
         <Weather defaultCity="Madrid" />
         <footer>
-          This project was coded by Soraya Carvajal and is {""}
+          This project was coded by{" "}
+          <a
+            href="https://stellar-donut-875afe.netlify.app/about.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Soraya Carvajal
+          </a>{" "}
+          and is {""}
           <a
             href="https://github.com/icuestiona/react-weather-app"
             target="_blank"
