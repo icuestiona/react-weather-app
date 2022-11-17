@@ -9,7 +9,7 @@
 }
 
 .Weather h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 100;
   line-height: 29px;
   margin: 20px 0 0 0;
@@ -20,7 +20,7 @@
 }
 
 .Weather li {
-  font-size: 18px;
+  font-size: 1.13rem;
   font-weight: 100;
   line-height: 19px;
   list-style: none;
@@ -32,23 +32,22 @@
 .Weather .temperature {
   font-weight: bold;
   color: whitesmoke;
-  font-size: 64px;
+  font-size: 4rem;
   line-height: 64px;
-  font-weight: 400;
   margin-left: 5px;
   margin-top: 60px;
 }
 
 .Weather .unit {
   color: rgb(33, 33, 33);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   position: relative;
   line-height: 1;
 }
 
 .degreeClickers {
-  font-size: 20px;
+  font-size: 1.25rem;
   top: -30px;
 }
 
@@ -63,9 +62,10 @@
   height: 44px;
 }
 .details {
-  color: #fbcf0f;
+  color: #ffd103;
   margin-left: 90px;
   margin-top: 30px;
+  font-size: 2rem;
 }
 .clearfix {
   margin-left: 18px;
